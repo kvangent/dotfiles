@@ -115,6 +115,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Enable git completion
+source /usr/share/bash-completion/completions/git
+
 # Python Development
 export PATH="/home/kurtis/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
