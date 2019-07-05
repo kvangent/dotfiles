@@ -1,3 +1,3 @@
-# kpvangent dev-env files
+# kpvangent's dotfiles
 
-Collection of files used to maintain my development enviroment. 
+Collection of files used in my environments. 
