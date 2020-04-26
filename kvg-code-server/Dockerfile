@@ -22,8 +22,9 @@ RUN sudo apt-get update && sudo apt-get install -y \
     golang-go \
   && rm -rf /var/lib/apt/lists/*
 
-# Add personal user
+# Personalize 
 ARG user=kurtis
-RUN adduser --gecos '' --disabled-password "${user}" && \
-	echo "${user} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd
+RUN sudo usermod -l "${user}"  -d "/home/${user}" coder \
+  && sudo groupmod --new-name "${user}" coder \
+  && sudo sed -i "s/coder/${user}/g" /etc/sudoers.d/nopasswd
 USER "${user}"
