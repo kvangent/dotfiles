@@ -1,5 +1,5 @@
 # Start with provided code-server image 
-FROM codercom/code-server:v2
+FROM codercom/code-server:latest
 USER root
 
 #  # Default to nano
