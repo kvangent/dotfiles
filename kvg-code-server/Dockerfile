@@ -16,9 +16,10 @@ RUN sudo apt-get update && sudo apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Install Golang
-RUN sudo apt-get update && sudo apt-get install -y \ 
-    golang-go \
-  && rm -rf /var/lib/apt/lists/*
+RUN sudo curl -L -o go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz \
+  && tar -C /usr/local -xzf go.tar.gz \
+  &&  >> /etc/profile
+
 
 # Install Docker
 RUN curl -sSL https://get.docker.com/ | sh
@@ -29,4 +30,5 @@ RUN sudo usermod -l "${user}" -d "/home/${user}" coder \
   && sudo usermod -aG docker "${user}" \
   && sudo groupmod --new-name "${user}" coder \
   && sudo sed -i "s/coder/${user}/g" /etc/sudoers.d/nopasswd
+  && sudo echo 'export PATH=$PATH:/usr/local/go/bin' >> 
 USER "${user}"

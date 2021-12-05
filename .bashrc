@@ -122,3 +122,6 @@ source /usr/share/bash-completion/completions/git
 export PATH="/home/kurtis/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Go development
+export PATH=$PATH:/usr/local/go/bin
