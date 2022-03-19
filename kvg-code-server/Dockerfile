@@ -27,6 +27,6 @@ ARG user=kurtis
 RUN sudo usermod -l "${user}" -d "/home/${user}" coder \
   && sudo usermod -aG docker "${user}" \
   && sudo groupmod --new-name "${user}" coder \
-  && sudo sed -i "s/coder/${user}/g" /etc/sudoers.d/nopasswd
+  && sudo sed -i "s/coder/${user}/g" /etc/sudoers.d/nopasswd \
   && sudo echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
 USER "${user}"
