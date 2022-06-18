@@ -16,7 +16,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Install Golang
-RUN sudo curl -L -o go.tar.gz https://go.dev/dl/go1.17.4.linux-amd64.tar.gz \
+RUN sudo curl -L -o go.tar.gz https://go.dev/dl/go1.18.3.linux-386.tar.gz \
   && tar -C /usr/local -xzf go.tar.gz 
 
 # Install Docker
